@@ -16,7 +16,11 @@ set -euo pipefail
 
 host="bandit.labs.overthewire.org"
 port=2220
-user="bandit0"
+user="bandit0"  #default value for username
+# now reading username to use this for every level
+read -p "Enter the username : " user
+echo "Entered username is : $user"
+
 
 echo "Checking Environemts ...."
 
