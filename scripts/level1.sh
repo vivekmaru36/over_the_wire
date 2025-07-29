@@ -13,4 +13,4 @@ user="bandit0"
 # read -p "Enter the username : " user
 # echo "Entered username"
 
-ssh -p "$port" "$user@$host" cat readme
+ssh -p "$port" "$user@$host" cat readme 
