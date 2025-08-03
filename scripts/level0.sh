@@ -9,6 +9,7 @@
 # # echo "enter password for bandit0 : "
 # # read -s 
 # ssh -p $PORT $USER@$HOST
+# ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 
 # refined by ai
 # good stuff best practices
