@@ -1,0 +1,1 @@
+# password from level6.sh : HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
