@@ -3,8 +3,8 @@
 # Pr : The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
 
-
-set -eou pipefail
+# only pipefall in each script ?
+# set -eou pipefail
 
 password=7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 #from level 12
 host="bandit.labs.overthewire.org"
@@ -13,7 +13,68 @@ user="bandit12"
 
 echo "Connecting to $host as $user on port $port ...."
 
-sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host"
+# sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host"
+
+sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host" << 'EOF'
+
+set -eou pipefail
+
+# creating a working directory
+tempdir=$(mktemp -d)
+cd $tempdir
+file=/home/bandit12/data.txt
+cp $file $tempdir
+cd $tempdir
+xxd -r data.txt > layer0
+
+echo $(file layer0) 
+
+mv layer0 layer0.gz
+gunzip layer0.gz
+
+echo $(file layer0)
+mv layer0 layer0.bz2
+echo $(ls)
+
+
+bzip2 -d layer0.bz2
+echo $(file layer0)
+echo $(ls)
+
+
+mv layer0 layer0.gz
+gunzip layer0.gz
+echo $(file layer0)
+echo $(ls)
+
+
+mv layer0 layer0.tar
+tar -xf layer0.tar
+echo $(file layer0.tar)
+echo $(ls)
+echo $(file data5.bin)
+
+
+# found bin file need to extract
+tar -xf data5.bin
+echo $(ls)
+
+# found bin file need to extract
+tar -xf data6.bin
+echo $(ls)
+
+# found bin file need to extract by renaming it to .gz
+echo $(ls)
+# echo $(cat data8.bin)
+echo $(file data8.bin)
+mv data8.bin data8.gz
+gunzip data8.gz
+echo $(ls)
+echo "the password is : $(cat data8)"
+
+EOF
+
+
 
 # history of commands to achieve the password 
 
