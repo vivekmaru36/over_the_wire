@@ -13,4 +13,13 @@ password=8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
 
 echo "Connecting to $host as $user on port $port ...."
 
-sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host"
+# sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host"
+sshpass -p "$password" ssh -o StrictHostKeyChecking=no -p "$port" "$user@$host" << 'EOF'
+
+# echo "Passowrd to be sent over openssl is : 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo"
+
+echo "8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo" | openssl s_client -connect localhost:30001 2>/dev/null
+
+EOF
+
+# openssl s_client -connect localhost:30001
