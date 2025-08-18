@@ -23,6 +23,8 @@ echo "ssh -i /home/bandi13/sshkey.private bandit14@bandit.labs.overthewire.org -
 ssh -o StrictHostKeyChecking=no -i /home/bandit13/sshkey.private bandit14@localhost -p 2220
 
 pwd
+cd /etc/bandit_pass/
+cat bandit14
  
 
 echo "Level 13 done"
