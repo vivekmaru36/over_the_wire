@@ -5,9 +5,15 @@ host="bandit.labs.overthewire.org"
 port=2220
 # user="bandit17"
 user="bandit18"
+# user="bandit19"
 password=x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+# password=cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
-sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host 
+# sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host <<  'EOF' 
+sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host <<  'EOF' 
+echo "Password for bandit 19 is : "
+cat readme 
+EOF
 
 # byebye when loggining into it ? what does it mean ?
 # sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host -4 
