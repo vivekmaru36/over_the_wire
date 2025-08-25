@@ -22,7 +22,7 @@ user2="bandit20"
 
 sshpass -p $password20 ssh -o StrictHostKeyChecking=no -p $port $user2@$host
 
-# wow i forget level 19-> 20
+# wow i forget level 19-> 20 
 
 # ======================================= experimienting
 # sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host << 'EOF'
