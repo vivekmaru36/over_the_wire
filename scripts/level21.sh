@@ -16,24 +16,48 @@ password20=$(sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user
 echo "Password for bandit20 : $password20"
 user2="bandit20"
 
-sshpass -p $password20 ssh -o StrictHostKeyChecking=no -p $port $user2@$host
+sshpass -p $password20 ssh -o StrictHostKeyChecking=no -p $port $user2@$host << 'EOF'
+
+# find a free port
+ss -tuln | grep 2343
+
+# you can use screen it seems easy comparesd to tmux hate screens  # cries in pain when can't control tmux movements wish i could do it so doing it in single script format
+
+# Terminal 1 --> listening terminal
+# Start the listener on port 2343 with the password of bandit20
+# tmux 
+# echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 2343
+# cat /etc/bandit_pass/bandit20 | nc -l -p 2343 & # run the listener in background using &
+
+
+# Terminal 2 --> sending terminal is this 
+# password_21=$(./suconnect 2343)
+
+# echo "Password for level 21 is : $password_21"
+
+# now way i couldn't figure this out
+password_21=$( (cat /etc/bandit_pass/bandit20 | nc -l -p 2343) & ./suconnect 2343 >/dev/null )
+echo "Password for level 21 is : $password_21"
+EOF
 
 # ---------------------------------------------
 # # There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
 
 # NOTE: Try connecting to your own network daemon to see if it works as you think
 
-# find a free port
-ss -tuln | grep 2343
+# # find a free port
+# ss -tuln | grep 2343
 
-# you can use screen it seems easy comparesd to tmux hate screens
+# # you can use screen it seems easy comparesd to tmux hate screens
 
-# Terminal 1 --> listening terminal
-# Start the listener on port 2343 with the password of bandit20
-echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 2343 
+# # Terminal 1 --> listening terminal
+# # Start the listener on port 2343 with the password of bandit20
+# echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 2343 
 
-# Terminal 2 --> sending terminal is this 
-./suconnect 2343
+# # Terminal 2 --> sending terminal is this 
+# ./suconnect 2343
+
+
 # bandit20@bandit:~$ ./suconnect 2343
 # Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 # Password matches, sending next password
