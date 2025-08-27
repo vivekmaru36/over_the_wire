@@ -86,3 +86,5 @@ EOF
 # ./bandit20-do nc localhost 4242
 
 # EOF
+
+# Password for level 21 is : EeoULMCra2q0dSkYj561DX7s1CpBuOBt
