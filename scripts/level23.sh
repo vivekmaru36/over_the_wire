@@ -10,9 +10,11 @@ port=2220
 user="bandit22"
 password=tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
 
+# sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host 
 sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host << 'EOF'
 
-value=$(echo I am user bandit23 | md5sum | cut -d ' ' -f) 
+value=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
+echo Password for bandit23 is :  
 cat /tmp/$value
 
 EOF
