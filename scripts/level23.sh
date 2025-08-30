@@ -4,6 +4,7 @@
 
 # NOTE: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
 
+# https://www.geeksforgeeks.org/linux-unix/md5sum-linux-command/
 
 host="bandit.labs.overthewire.org"
 port=2220
