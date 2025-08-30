@@ -21,7 +21,7 @@ sshpass -p $password20 ssh -o StrictHostKeyChecking=no -p $port $user2@$host << 
 # find a free port
 ss -tuln | grep 2343
 
-# you can use screen it seems easy comparesd to tmux hate screens  # cries in pain when can't control tmux movements wish i could do it so doing it in single script format
+# you can use screen it seems easy compared to tmux hate screens  # cries in pain when can't control tmux movements wish i could do it so doing it in single script format
 
 # Terminal 1 --> listening terminal
 # Start the listener on port 2343 with the password of bandit20
