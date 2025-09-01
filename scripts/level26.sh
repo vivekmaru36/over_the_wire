@@ -37,7 +37,7 @@ EOF
 # advice please use escape mode for command execution
 # password for banditpass26
 
-# How To convert this into script ? now ? 
+# How To convert this into script ? now 
 
 # bandit25@bandit:~$ cat bandit26.sshkey 
 # -----BEGIN RSA PRIVATE KEY-----
