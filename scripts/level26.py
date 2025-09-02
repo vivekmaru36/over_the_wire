@@ -1,8 +1,10 @@
 # #!/bin/bash
 
+# i hate minimizing my screen eveytime  i do ssh and getting that pass so i just copied it now and we use it and again doing that random sets of manual work to exit this shit
+
 #!/usr/bin/env python3
 import time
-import pexpect
+import pexpect # pyright: ignore[reportMissingModuleSource]
 
 host = "bandit.labs.overthewire.org"
 port = 2220
