@@ -45,7 +45,7 @@ print("\n inside a real bash shell as bandit26 no way : \n")
 # child.sendline("c")
 #  i don't want control just paste bandit 27 password and exit the ssh s
 child.interact() # this gives me back control    # very crucial line if this don't work nothing works
-child.close(force=True)# close don't work here
+child.close(force=True)# only god knows why close don't work here
 
 # password of bandit 27  is : upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
 
