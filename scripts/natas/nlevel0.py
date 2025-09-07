@@ -56,12 +56,14 @@ session.auth = (username, password)
 response = session.get(url)
 
 # Look for the password in the response
-# For Natas0, it's usually in an HTML comment
+
 import re
 
-password_match = re.search(r'<!--\s*(\w+)\s*-->', response.text)
-print(response.text)
+password_match = re.search(r'<!--The password for natas1 is ([A-Za-z0-9]+) -->', response.text)
+
+# print(response.text) # need this to debug the search
+
 if password_match:
-    print("Password for next level:", password_match.group(1))
+    print("Password for next level:", password_match.group(0))
 else:
     print("Could not find the password.")
