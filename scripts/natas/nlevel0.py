@@ -40,7 +40,7 @@
 
 import requests
 from getpass import getpass
-
+ 
 # Natas 0 credentials
 username = "natas0"
 password = "natas0"
