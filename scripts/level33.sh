@@ -13,7 +13,7 @@ sshpass -p "$password" ssh -p $port $user@$host
 
 
 # Uppercase Shell
-# $0
+# $0 // this thing also stops me from exiting even though bash bash has'nt even reached this line
 whoami
 # bandit33
 
@@ -27,3 +27,6 @@ $ /bin/cat /etc/bandit_pass/bandit33
 
 # ctrl +d
 
+
+
+# password for bandit 34 is :  tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
