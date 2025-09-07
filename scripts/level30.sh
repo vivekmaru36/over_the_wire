@@ -9,6 +9,25 @@ user="bandit29"
 password="4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7"
 
 sshpass -p "$password" ssh -p $port $user@$host 
+cd /tmp/
+mkdir bandit30_v
+
+cd bandit30_v
+pwd
+
+git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+
+cd repo/
+
+git branch -r
+
+git checkout dev
+
+ll
+
+cat README.md
+cd ..
+rm -rf /tmp/bandit30_v/
 
 
 ## credentials
