@@ -7,7 +7,7 @@
 
 # password from nlevel0.py = 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
 
-import requests
+import requests # pyright: ignore[reportMissingModuleSource]
 
 username="natas1"
 password="0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq"
@@ -34,3 +34,7 @@ if password_match:
     print("Password for natas2 level is : ",password_match.group(0))
 else :
     print("Could not find password for natas2")
+
+
+# password for natas2
+# password=TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
