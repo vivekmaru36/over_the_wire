@@ -38,7 +38,7 @@
 # </html>
 
 
-import requests
+import requests # pyright: ignore[reportMissingModuleSource]
 from getpass import getpass
  
 # Natas 0 credentials
@@ -59,7 +59,7 @@ response = session.get(url)
 
 import re
 
-password_match = re.search(r'<!--The password for natas1 is ([A-Za-z0-9]+) -->', response.text)
+password_match = re.search(r'The password for natas1 is ([A-Za-z0-9]+)', response.text)
 
 # print(response.text) # need this to debug the search
 
