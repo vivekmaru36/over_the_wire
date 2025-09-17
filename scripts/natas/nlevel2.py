@@ -33,7 +33,7 @@ def main():
     command ="curl -s -u natas2:TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI http://natas2.natas.labs.overthewire.org/files/users.txt | grep -i natas3"
     
     try :
-        # spawn shell config need to keep shel true for grep and curl
+        # spawn shell config need to keep shell true for grep and curl
         result=subprocess.run(
             command,
             shell=True,
@@ -61,5 +61,8 @@ def main():
 
 if __name__=="__main__":
     main()    
+
+
+# password for natas 3 is : natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
 
 # Approach 3 :
