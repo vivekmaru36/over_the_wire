@@ -69,3 +69,4 @@ def main():
 if __name__=="__main__":
     main()    
 
+# password for natas6 is 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
