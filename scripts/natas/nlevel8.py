@@ -48,7 +48,7 @@
 # </html>
 
 
-# first learn how to convert a inary to hexa decimal number here : https://www.youtube.com/watch?v=tSLKOKGQq0Y
+# first learn how to convert a binary to hexa decimal number here : https://www.youtube.com/watch?v=tSLKOKGQq0Y
 
 # Refrence table for hexadecimal
 # ----------------------------------------------------------
@@ -79,3 +79,57 @@
 # function encodeSecret($secret) {
 #     return bin2hex(strrev(base64_encode($secret)));
 # }
+
+
+
+# i am not sure but this is what i got from sitting with it for a day
+# <?php
+# $encodedSecret = "3d3d516343746d4d6d6c315669563362";
+
+# function encodeSecret($secret) {
+#     return bin2hex(strrev(base64_encode($secret)));
+# }
+# function getpass($encodedSecret){
+#     return base64_decode(strrev(hex2bin($encodedSecret)));
+# }
+
+# echo "\n";
+
+# echo getpass($encodedSecret)
+
+# Is this the pass ? yes it was
+# output : oubWYf2kBq
+# Access granted. The password for natas9 is ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+
+# ?>
+
+
+import requests ,re
+
+auth_user="natas8"
+
+auth_pass="xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q"
+
+url="http://natas8.natas.labs.overthewire.org/"
+url_source_code="http://natas8.natas.labs.overthewire.org/index-source.html"
+
+# params not neded here
+# params={
+#     "page":
+# }
+
+# sumbit the form using POST
+
+data={
+    "secret":"oubWYf2kBq",
+    "submit":"submit"
+}
+
+resp=requests.post(url,auth=(auth_user,auth_pass),data=data)
+
+text=resp.text
+
+# print(text)
+
+m=re.findall(r'(password for natas9 is [A-za-z0-9]{5,40})',text)
+print(m)
