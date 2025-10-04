@@ -36,7 +36,7 @@ if m :
     # print("Found password for natas9 : ",m[0])  # this holds the pass of natas9 we need for natas10
     print("Found password for natas10 : ",m[1])
 else :
-    print("No passwod for natas9 is : ")
+    print("No passwod found for natas10 ")
 
 # firs_10_lines=text[:50]
 # print(firs_10_lines)
