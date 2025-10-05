@@ -104,7 +104,7 @@
 # ?>
 
 
-import requests ,re
+import requests ,re # type: ignore
 
 auth_user="natas8"
 

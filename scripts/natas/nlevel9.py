@@ -12,7 +12,7 @@
 # simply just get our pass from /etc/natas_webpass/natas9
 
 
-import requests , re
+import requests , re # type: ignore
 
 auth_user="natas9"
 auth_pass="ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t"
