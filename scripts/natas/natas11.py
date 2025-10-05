@@ -144,9 +144,8 @@
 
 
 # ---------------------------------- Second data function with bg color ?  | this one is more complex
-#  after checking cookies this is the data variable value : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D
-# the %3d in the variable is ascii for '=' 
-# cokkie : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg=
+
+# -------------------------------------------------------------------------
 
 # function loadData($def) {
 #     global $_COOKIE;
@@ -177,4 +176,34 @@
 
 # saveData($data);
 
-# ------------------------
+# -------------------------------------------------------------------------
+
+#  after checking cookies this is the data variable value : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D
+# the %3d in the variable is ascii for '=' 
+# cokkie : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg=
+
+
+# -----------------------  gpt was not helping instead : https://learnhacking.io/overthewire-natas-level-11-walkthrough/
+# ----
+
+# php code to get the ciphertext which is notheing but the value in b64 and json code 
+
+# implemetation :
+# ciphertext(key) = (cookie) xor (echo base64_encode(json_encode(($defaultdata=array("showpassword"=>"no","bg-color"=>"#ffffff"));)
+
+# <?php
+
+# // no way
+# $defaultdata=array("showpassword"=>"no","bg-color"=>"#ffffff");
+
+# echo base64_encode(json_encode($defaultdata));
+# output : eyJzaG93cGFzc3dvcmQiOiJubyIsImJnLWNvbG9yIjoiI2ZmZmZmZiJ9
+# ?>
+
+
+# after xor we get this repeating text : eDWo
+# [vivek@Maru natas]$ python Xor_helper_function.py 
+# b'eDWoeDWoeDWoeDWoeDWoeDWo+HTlx\x14Owd\x01WoeDW+:'
+
+# make a new cookie with this new key 
+
