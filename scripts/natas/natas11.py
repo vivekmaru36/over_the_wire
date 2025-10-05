@@ -141,7 +141,12 @@
 # * This is why XOR encryption is called **symmetric**.
 # -------------------------------------------------------------------------------
 
+
+
 # ---------------------------------- Second data function with bg color ?  | this one is more complex
+#  after checking cookies this is the data variable value : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D
+# the %3d in the variable is ascii for '=' 
+# cokkie : HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg=
 
 # function loadData($def) {
 #     global $_COOKIE;
